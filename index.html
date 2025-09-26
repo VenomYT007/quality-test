@@ -130,6 +130,19 @@
         preloaded[q] = img;
       }
     });
+    
+    function typeWriter(element, text, speed = 50) {
+      element.textContent = ""; // clear any old text
+      let i = 0;
+    function typing() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(typing, speed);
+      }
+    }
+  typing();
+ }
 
     qualitySelect.addEventListener("change", () => {
       if (qualitySelect.value === "4k") {
@@ -140,8 +153,10 @@
           video4k.style.display = "block";
           video4k.classList.remove("fade-out");
           video4k.play();
-          message.textContent = "Srutu... You're that brightest moon that leads me in my dark life... Am always in awe of your beauty yet always in great content that I found you in this world... The best one in this world... I Love You 💜 & I'm deeply regreted for every mistakes I've ever made... And ik that you don't need any gifts but kya hi karu dil manta hi nhi diye bager... Always take caare Bestu...";
-          setTimeout(() => { message.style.opacity = 1; }, 200);
+          const secret = "Srutu... You're that brightest moon that leads me in my dark life... Am always in awe of your beauty yet always in great content that I found you in this world... The best one in this world... I Love You 💜 & I'm deeply regreted for every mistakes I've ever made... And ik that you don't need any gifts but kya hi karu dil manta hi nhi diye bager... Always take caare Bestu...";
+message.style.opacity = 1;
+typeWriter(message, secret, 50); // 50ms per character
+
         }, 500);
       } else {
         video4k.style.display = "none";
@@ -217,4 +232,5 @@
   </script>
 </body>
 </html>
+
 
